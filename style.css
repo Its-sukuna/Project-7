@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,100&family=Darker+Grotesque:wght@300&family=Josefin+Sans:wght@200&family=Montserrat:wght@100&family=Open+Sans:wght@300;400&family=Poppins:wght@100;400&family=Spectral:ital,wght@0,200;0,300;1,200&family=Urbanist:wght@100;400&family=Yantramanav:wght@100;300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    109.6deg,
+    rgb(177, 173, 219) 11.2%,
+    rgb(245, 226, 226) 91.1%
+  );
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 9999;
+}
+
+.nav-bar {
+  display: flex;
+  height: 50px;
+  width: 100%;
+  margin-left: 40px;
+  justify-content: flex-start;
+}
+
+.options {
+  display: flex;
+  height: 40px;
+  margin-right: 40px;
+  align-items: center;
+}
+
+.options a {
+  position: relative;
+  font-size: 1.1rem;
+  margin-right: 40px;
+  text-decoration: none;
+  color: rgb(136, 113, 83);
+  transition: 0.2s;
+}
+
+.options a:hover {
+  transform: scale(1.15);
+}
+
+.options a::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 2px;
+  background-color: #43302e;
+  background-image: linear-gradient(315deg, #43302e 0%, #ad6f69 74%);
+  border-radius: 5px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: 0.5s;
+}
+
+.options a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.home {
+  display: flex;
+  height: 400px;
+  width: 650px;
+  border-radius: 20px;
+  background: linear-gradient(
+    44.8deg,
+    rgba(255, 136, 102, 0.67) -53.1%,
+    rgba(255, 221, 136, 0.28) 49%
+  );
+  color: midnightblue;
+  box-shadow: 0 0 30px rgb(117, 117, 117);
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+  transition: transform 0.5s ease, height 0.2s ease;
+}
+
+.home.active-popup {
+  transform: scale(1);
+}
+
+.home.active {
+  display: none;
+  transform: scale(0);
+}
+
+.btn {
+  width: 130px;
+  height: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.btn .create {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: rgb(90, 72, 48);
+  font-weight: 500;
+  transition: 0.28s;
+}
+
+.btn .create:hover {
+  background: rgb(136, 118, 95);
+  color: ivory;
+  transform: scale(1.08);
+}
+
+.addTask {
+  display: none;
+  height: 600px;
+  width: 1000px;
+  align-items: center;
+  justify-content: space-evenly;
+  transform: scale(0);
+  transition: transform 0.5s ease, height 0.2s ease;
+}
+
+.addTask.active {
+  display: flex;
+  transform: scale(1);
+}
+
+.addTask .table {
+  width: 100%;
+}
+
+.addTask .table .list {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #473d4b;
+}
+
+table.darkTable {
+  border: 0px solid #806c80;
+  background-color: #d0afd1;
+  box-shadow: 0 0 30px rgb(117, 117, 117);
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table.darkTable td,
+table.darkTable th {
+  border: 1px solid #806c80;
+  padding: 3px 2px;
+}
+
+table.darkTable tbody td {
+  height: 40px;
+  font-size: 15px;
+  color: #000000;
+}
+
+table.darkTable tbody td input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgb(0, 0, 0);
+  padding-left: 10px;
+}
+
+.Sno input {
+  margin-inline-start: 40%;
+}
+
+table.darkTable tr:nth-child(even) {
+  background: rgb(245, 226, 226);
+}
+table.darkTable thead {
+  height: 40px;
+  background: rgb(245, 226, 226);
+  border-bottom: 0px solid #806c80;
+}
+table.darkTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #473d4b;
+  text-align: center;
+  border-left: 0px solid #806c80;
+}
+table.darkTable thead th:first-child {
+  border-left: none;
+}
+
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 450px;
+  background: transparent;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgb(117, 117, 117);
+  display: none;
+  align-items: center;
+  overflow: hidden;
+  transform: scale(0);
+  justify-content: center;
+  transition: transform 0.5s ease, height 0.2s ease;
+}
+
+.wrapper.active-popUp {
+  transform: scale(1);
+}
+
+.wrapper.active-reg {
+  height: 520px;
+}
+
+.wrapper .loginBox {
+  transition: 0.18s ease;
+  transform: translateX(0);
+}
+
+.wrapper.active .loginBox {
+  transition: none;
+  transform: translateX(-400px);
+}
+
+.wrapper .loginBox {
+  width: 100%;
+  padding: 40px;
+}
+
+.wrapper .registerBox {
+  position: absolute;
+  transition: none;
+  transform: translateX(400px);
+}
+
+.wrapper.active-reg .registerBox {
+  transition: 0.18s ease;
+  transform: translateX(0);
+}
